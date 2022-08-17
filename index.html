@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="apple-touch-icon-precomposed" sizes="57x57" href="icon.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icon.jpg" />
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icon.jpg" />
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icon.jpg" />
+      <title>
+         tnt
+      </title>
+      <link rel="shortcut icon" style="border-radius: 50% !important;" type="image/x-icon" href="icon.ico" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+           .fa-calendar{
+          padding: 20px;
+         font-size: 35px;
+         width: 70px;
+         height: 70px;
+         text-align: center;
+         text-decoration: none;
+         color: black;
+         position: fixed;
+         z-index: 999;
+         top: -10px;
+         right: -10px;
+         }
+         .fa-archive {
+         width: 40px;
+         height: 40px;
+         text-align: center;
+         text-decoration: none;
+         color: black;
+         position: fixed;
+         z-index: 999;
+         top: 10px;
+         left: 10px;
+         }
+         #date{
+         font-size: 20px;
+          -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   display: inline;
+   line-height: 50px;
+   margin-left: 5px;
+         }
+         #header.green{
+            background-color: #3a4797;
+            color: white;
+         }
+         #header.green img{
+            filter: brightness(0) invert(1);;
+         }
+         #done{
+         font-size: 25px;
+          -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+         position: relative;
+         top: -35px;
+         color: white;
+         text-align: center !important;
+         }
+         #none{
+         font-size: 25px;
+          -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+         position: relative;
+         top: -10px;
+         text-align: center !important;
+         }
+         #title{
+            text-align: left;
+            font-size: 16px;
+            margin-top: 15px;
+            max-width: 200px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            margin-left: 10px;
+            margin-right: auto;
+            font-weight: bold;
+            color: white;
+         }
+         #artist{
+            margin-top: -5px;
+            text-align: left;
+            font-size: 14px;
+            max-width: 200px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            margin-left: 11px;
+            margin-right: auto;
+            color: white;
+         }
+         img{
+         width: 40px;
+         height: auto;
+         border-radius: 5px;
+         }
+         a{
+         text-decoration: none;
+         }
+         a:hover{
+         text-decoration: none;
+         color: black;
+         }
+         .album{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         /* bring your own prefixes */
+         transform: translate(-50%, -50%);
+         }
+        /*body{
+           background-image: url("icon.jpg");
+         }*/
+         /* Modal Content */
+         /* Add Animation */
+         #datepicker{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         /* bring your own prefixes */
+         transform: translate(-50%, -50%);
+         text-align: center;
+         border: none;
+         }
+         #logo{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         margin-top: -306.5px;
+         margin-left: -142px;
+         white-space: nowrap;
+         transform: translate(-50%, -50%);
+         height: 27.5px;
+         width: auto;
+         z-index: 100;
+         border-radius: 50%;
+         }
+          #fulllogo{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         margin-top: -280px;
+         margin-left: 0px;
+         white-space: nowrap;
+         transform: translate(-50%, -50%);
+         height: 60px;
+         width: auto;
+         z-index: 100;
+         border-radius: 50%;
+         display: none;
+         }
+         #yourname{
+       position: absolute;
+         top: 50%;
+         margin-top: -240px;
+         margin-left: calc(50% - 150px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: white;
+   z-index: 1;
+   display: none;
+   font-weight: bold;
+         }
+         .pronouns{
+            font-weight: normal; color: grey;
+         }
+         #friends{
+            position: absolute;
+         top: 50%;
+         margin-top: -210px;
+         margin-left: calc(50% - 145px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   background-color: white;
+   text-align: left !important;
+   color: black;
+   z-index: 1;  
+   display: none; 
+         }
+                  #lists{
+            position: absolute;
+         top: 50%;
+         margin-top: -210px;
+         margin-left: calc(50% - 80px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   background-color: white;
+   text-align: left !important;
+   color: black;
+   z-index: 1;  
+   display: none; 
+         }
+         #friendscalendar{
+            position: absolute;
+         top: 50%;
+         margin-top: -210px;
+         margin-left: calc(50% - 50px);
+   font-size: 14px;
+   padding: 5px 10px 5px 10px;
+   border-radius: 50%;
+   background-color: white;
+   text-align: left !important;
+   color: black;
+   z-index: 1; 
+   display: none;  
+         }
+         #search{
+       /*  margin-left: 142px;*/
+         position: absolute;
+         top: 50%;
+         margin-top: -320px;
+         margin-left: calc(50% + 126.5px);
+           border-radius: 50%;
+   font-size: 25px;
+   line-height: 25px;
+   border-radius: 50%;
+   background-color: white;
+   text-align: center;
+   color: rebeccapurple;
+   z-index: 1;
+   height: 27.5px;
+   width: 27.5px;
+         }
+         #searchbysong{
+       /*  margin-left: 142px;*/
+         position: absolute;
+         top: 50%;
+         margin-top: -280px;
+         margin-left: calc(50% - 20px);
+           border-radius: 50px;
+   font-size: 20px;
+   padding-left: 5px;
+   padding-right: 5px;
+   line-height: 25px;
+   border-radius: 50px;
+   background-color: #F5F5F5;
+   text-align: center;
+   color: black;
+   z-index: 2;
+   height: 27.5px;
+         }
+         #calendarbtn{
+       /*  margin-left: 142px;*/
+         position: absolute;
+         top: 50%;
+         margin-top: -320px;
+         margin-left: calc(50% + 126.5px);
+           border-radius: 50%;
+   font-size: 24px;
+   line-height: 24px;
+   border-radius: 50%;
+   background-color: white;
+   text-align: center;
+   color: black;
+   z-index: 1;
+   height: 27.5px;
+   width: 27.5px;
+   display: none;
+         }
+         #back{
+       /*  margin-left: 142px;*/
+         position: absolute;
+         top: 50%;
+         margin-top: -320px;
+         margin-left: calc(50% - 155.5px);
+           border-radius: 50%;
+   font-size: 20px;
+   line-height: 25px;
+   border-radius: 50%;
+   background-color: black;
+   text-align: center;
+   color: white;
+   z-index: 1;
+   height: 27.5px;
+   width: 27.5px;
+   display: none;
+         } 
+      #set{
+    position: absolute;
+         top: 50%;
+         margin-top: -320px;
+         margin-left: calc(50% + 126.5px);
+           border-radius: 50%;
+   font-size: 25px;
+   line-height: 25px;
+   border-radius: 50%;
+   background-color: white;
+   text-align: center;
+   color: black;
+   z-index: 1;
+   height: 27.5px;
+   width: 27.5px;
+   display: none;
+         } 
+         #fava{
+            position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         margin-left: -100px;
+         margin-top: 40px;
+         display: none;
+         }
+         #favb{
+            position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         margin-left: -100px; 
+         margin-top: 90px;
+         display: none;
+         }
+         #favc{
+            position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         margin-left: -100px;
+         margin-top: 140px;
+         display: none;
+         }
+         #favatitle{
+   position: absolute;
+   top: 50%;
+   margin-top: 20px;
+   margin-left: calc(50% - 70px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: white;
+   z-index: 1;
+   display: none;
+   font-weight: bold;
+         }
+         #favbtitle{
+             position: absolute;
+   top: 50%;
+   margin-top: 70px;
+   margin-left: calc(50% - 70px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: white;
+   z-index: 1;
+   display: none;
+   font-weight: bold;  
+         }
+      #favctitle{
+             position: absolute;
+   top: 50%;
+   margin-top: 120px;
+   margin-left: calc(50% - 70px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: white;
+   z-index: 1;
+   display: none;
+   font-weight: bold;  
+         }
+         #sodbox{
+            position: fixed;
+         top: 50%;
+         left: 50%;
+         margin-top: -65px;
+         transform: translate(-50%, -50%);
+         width: 270px;
+         height: 175px;
+         background-color: white;
+         border-radius: 10px;
+         display: none;
+         }
+         #sod{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         margin-left: -100px;
+         margin-top: -120px;
+         z-index: 200;
+         display: none;
+         }
+         #sodtitle{
+          position: absolute;
+   top: 50%;
+   margin-top: -142.5px;
+   margin-left: calc(50% - 70px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: black;
+   z-index: 200;
+   font-weight: bold;  
+   display: none;
+         }
+         #soddesc{
+            position: absolute;
+   top: 50%;
+   margin-top: -90px;
+   margin-left: calc(50% - 120px);
+   font-size: 12px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   background-color: black;
+   color: white;
+   z-index: 200;
+   width: 240px;
+   display: none;
+         }
+    #soddate{
+position: absolute;
+   top: 50%;
+   margin-top: -5px;
+   margin-left: calc(50% - 120px);
+   font-size: 12px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: grey;
+   z-index: 200;
+   display: none;  
+         }
+         #emotion{
+   position: absolute;
+   top: 50%;
+   margin-top: -135px;
+   margin-left: calc(50% + 90px);
+   font-size: 14px;
+   padding: 5px 6.5px 5px 6.5px;
+   border-radius: 50%;
+   text-align: left !important;
+   color: black;
+   background-color: black;
+   background-color: mediumspringgreen;
+   z-index: 200;
+   font-weight: bold;
+   display: none;
+         }
+         #sodbbox{
+            position: fixed;
+         top: 50%;
+         left: 50%;
+         margin-top: 80px;
+         transform: translate(-50%, -50%);
+         width: 270px;
+         height: 85px;
+         background-color: white;
+         border-radius: 10px;
+         display: none;
+         }
+                  #sodb{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         margin-left: -100px;
+         margin-top: 70px;
+         z-index: 200;
+         display: none;
+         }
+         #sodbtitle{
+          position: absolute;
+   top: 50%;
+   margin-top: 47.5px;
+   margin-left: calc(50% - 70px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: black;
+   z-index: 200;
+   font-weight: bold;  
+   display: none;
+         }
+    #sodbdate{
+position: absolute;
+   top: 50%;
+   margin-top: 95px;
+   margin-left: calc(50% - 120px);
+   font-size: 12px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: grey;
+   z-index: 200;
+   display: none;  
+         }
+         #emotionb{
+   position: absolute;
+   top: 50%;
+   margin-top: 55px;
+   margin-left: calc(50% + 90px);
+   font-size: 14px;
+   padding: 5px 6.5px 5px 6.5px;
+   border-radius: 50%;
+   text-align: left !important;
+   color: black;
+   background-color: black;
+   background-color: tomato;
+   z-index: 200;
+   font-weight: bold;
+   display: none;
+         }
+      #sodcbox{
+            position: fixed;
+         top: 50%;
+         left: 50%;
+         margin-top: 180px;
+         transform: translate(-50%, -50%);
+         width: 270px;
+         height: 85px;
+         background-color: white;
+         border-radius: 10px;
+         display: none;
+         }
+                  #sodc{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         margin-left: -100px;
+         margin-top: 170px;
+         z-index: 200;
+         display: none;
+         }
+         #sodctitle{
+          position: absolute;
+   top: 50%;
+   margin-top: 147.5px;
+   margin-left: calc(50% - 70px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: black;
+   z-index: 200;
+   font-weight: bold;  
+   display: none;
+         }
+    #sodcdate{
+position: absolute;
+   top: 50%;
+   margin-top: 195px;
+   margin-left: calc(50% - 120px);
+   font-size: 12px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: grey;
+   z-index: 200;
+   display: none;  
+         }
+         #emotionc{
+   position: absolute;
+   top: 50%;
+   margin-top: 155px;
+   margin-left: calc(50% + 90px);
+   font-size: 14px;
+   padding: 5px 6.5px 5px 6.5px;
+   border-radius: 50%;
+   text-align: left !important;
+   color: black;
+   background-color: black;
+   background-color: rebeccapurple;
+   z-index: 200;
+   font-weight: bold;
+   display: none;
+         }
+         #sortuser{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         margin-top: -190px;
+         transform: translate(-50%, -50%);
+         font-size: 16px;
+         border: #3a4797 2.5px solid;
+         padding: 5px;
+         border-radius: 200px;
+         color: #3a4797;
+         }
+         #sortuser.toggle{
+            color: white;
+            background-color: #3a4797;
+         }
+         #user{
+   position: absolute;
+         top: 50%;
+         margin-top: -320px;
+         margin-left: calc(50% - 120px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   background-color: white;
+   text-align: left !important;
+   color: rebeccapurple;
+   z-index: 1;
+         }
+          #searchbackground{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         background-color: black;
+         height: 730px;
+         width: 360px;
+         border-radius: 40px;
+         z-index: -1;
+         border: 5px solid black;
+         display: none;
+         }
+         #background{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         background-color: rebeccapurple;
+         height: 730px;
+         width: 360px;
+         border-radius: 40px;
+         z-index: -1;
+         border: 5px solid black;
+         }
+         #background.pause{
+            background-color: black !important;
+         }
+         #leftbackground{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         background-color: rgba(0, 0, 0,  0);
+         height: 730px;
+         width: 180px;
+         margin-left: -90px;
+         border-radius: 25px 0% 0% 25px;
+         z-index: -.5;
+         }
+         #bezel{
+           position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         background-color: black;
+         border-bottom-left-radius: 10px;
+         border-bottom-right-radius: 10px;
+         height: 30px;
+         width: 170px; 
+         margin-top: -350px;
+         }
+         #centralsearch{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         margin-top: -306.5px;
+         height: 30px;
+         /*border: solid 2.5px black;*/
+         border: none;
+         background-color:#F5F5F5;
+         border-radius: 5px;
+         font-size: 14px;
+         display: none;
+         padding-left: 10px;
+         width: 210px;
+         }
+         input:focus {
+            border: none;
+ outline: none;
+ box-shadow: none;
+}
+#rhysbar{
+    position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         margin-top: 347.5px;
+   height: 4px;
+   width: 120px;
+   background-color: white;
+   border-radius: 50px;
+}
+      </style>
+   </head>
+   <body>
+   <!--<body onload="date()">
+       Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+      <script>
+var usertextcolor = "";
+var caught = 0;
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+
+const dateObj = new Date();
+
+var zone = new Date().toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2]
+//make by users time zone
+
+var day = dateObj.getDate();
+if (day <10) {day = "0"+day;}
+
+var month = dateObj.getMonth()+1;
+if (month <10) {month = "0"+month;}
+
+var year = dateObj.getFullYear();
+
+var newdate =  monthNames[dateObj.getMonth()] + " " + day + ", " + year;
+newdate = "July 18, 2022";
+var newcalendardate = year+"-"+month+"-"+day;
+
+/*function date(){
+document.getElementById("date").innerHTML = (newdate);
+}*/
+var aha = "";
+var formalmonth = "";
+var annoying;
+var formalaha = "";
+
+         // place your images in this array
+
+         var fullarray= [
+["I'm Not Getting Excited", 'The Beths', 'https://open.spotify.com/track/3pwjsxeH4rQj347LHpsf7U', 'https://i.scdn.co/image/ab67616d0000b273c2f4ca510206a0274479a98b', 'July 18, 2022', 'Jasper Jarecki'],
+['Fat Lip', 'Sum 41', 'https://open.spotify.com/track/4KacUpvbA3Mfo05gttTjhN', 'https://i.scdn.co/image/ab67616d0000b2739a482180e6a306229bff49dc', 'July 18, 2022', 'Otis the Dog'],
+['Dune', 'Kikagaku Moyo', 'https://open.spotify.com/track/45qGrOnjFJsgmzjRv5LA2T', 'https://i.scdn.co/image/ab67616d0000b273a938f8d61319e7ca724ddd8c', 'July 18, 2022', 'Demery Coppolla'],
+['The Start of Something', 'Voxtrot', 'https://open.spotify.com/track/30fQvBnDR8jLdN0SFcsFos', 'https://i.scdn.co/image/ab67616d0000b273170683264052615fd667788d', 'July 18, 2022', 'Bobby Lussier'],
+['Bathroom Light', 'Mt. Joy', 'https://open.spotify.com/track/71glNHT4FultOqlau4zrFf', 'https://i.scdn.co/image/ab67616d0000b27334b591c6b39fd89b03909ac5', 'July 18, 2022', 'Emily Sancomb'],
+['Talk About Suffering', 'Ricky Skaggs', 'https://open.spotify.com/track/7rEamPIhYubI3DlXAKnYpR', 'https://i.scdn.co/image/ab67616d0000b273905a0410c30a46a2299bd7cb', 'July 18, 2022', 'Sam Bartusek'],
+['Baltimore', 'Nina Simone', 'https://open.spotify.com/track/39CyGKIFqMzSuynOR8uilD', 'https://i.scdn.co/image/ab67616d0000b273a3e94aa06432d0fa06e54f76', 'July 18, 2022', 'Andy Bainton'],
+['Good Thoughts, Bad Thoughts', 'Funkadelic', 'https://open.spotify.com/track/2jIMUFk9VGIOUYTWyx2pC5', 'https://i.scdn.co/image/ab67616d0000b27381e659891374fac834ef9011', 'July 18, 2022', "Helen Killian"],
+['Cheap Cocaine', 'Willi Carlisle', 'https://open.spotify.com/track/217rrEULoEhwza1PIJKT71', 'https://i.scdn.co/image/ab67616d0000b273eb446d8914af2509c1e1bad9', 'July 18, 2022', 'Tommy Maron'],
+['Tennessee Whiskey', 'Chris Stapleton', 'https://open.spotify.com/track/3fqwjXwUGN6vbzIwvyFMhx', 'https://i.scdn.co/image/ab67616d0000b273540fc1d083eac5bcff8dad21', 'July 18, 2022', 'Sarah von Doepp'],
+["2 Days", "Antarctigo Vespucci", "https://open.spotify.com/track/2048QksTiQWqfQ8QYFrccb", "https://i.scdn.co/image/ab67616d0000b2735da5ddf18b9527b5f669a9ad", "July 19, 2022", "Bobby Lussier"],
+["Beeswing", "Richard Thompson", "https://open.spotify.com/track/4j8z75abjq2GCA1U7AaPRj", "https://i.scdn.co/image/ab67616d0000b273dbc84faf90f1ced8e6bf150f", "July 19, 2022", "Tommy Maron"],
+["Eternal Sunshine", "Lou Val", "https://open.spotify.com/track/5FChOu6NfR5w7YLgDmXXnC", "https://i.scdn.co/image/ab67616d0000b273b944f28fbc417dc9dcc629a7", "July 19, 2022", "Sarah von Doepp"],
+["Fall Apart Again", "Brandi Carlile", "https://open.spotify.com/track/3noYdMvieR1yokC455dC4V", "https://i.scdn.co/image/ab67616d0000b2730da280373953f2db2ac204e7", "July 19, 2022", "Jasper Jarecki"],
+["Head Alone", "Julia Jacklin", "https://open.spotify.com/track/1K7xX7qHXeIMwfTtxieAxH", "https://i.scdn.co/image/ab67616d0000b2732fca2b6f420ec6044327ec2d", "July 19, 2022", "Demery Coppolla"],
+["If You Can Want", "Perth County Conspiracy", "https://open.spotify.com/track/6RRAyZxAyd3B4qPdvcW8K6", "https://i.scdn.co/image/ab67616d0000b27333e92a5a6a233bce774e9924", "July 19, 2022", "Helen Killian"],
+["Matilda", "Elizabeth Moen", "https://open.spotify.com/track/1ZEcBjSbNIitaKAwdcBEdx", "https://i.scdn.co/image/ab67616d0000b2736091bdddd62d01ffcace9863", "July 19, 2022", "Emily Sancomb"],
+["Perfect Day", "Hoku", "https://open.spotify.com/track/4pMyfWdA0eo3JY5RqMotbw", "https://i.scdn.co/image/ab67616d0000b273c2e1019d19d980b68e4ff27a", "July 19, 2022", "Sam Bartusek"],
+["The Middle", "Jimmy Eat World", "https://open.spotify.com/track/6GG73Jik4jUlQCkKg9JuGO", "https://i.scdn.co/image/ab67616d0000b27395d1d98c5176e4f982bd73d6", "July 19, 2022", "Otis the Dog"],
+["A Walk to Remember", "Vulfpeck", "https://open.spotify.com/track/6Aoo9CtYY2q0jEt4GMDJUK", "https://i.scdn.co/image/ab67616d0000b27393c162b42621a123f78f308e", "July 20, 2022", "Jasper Jarecki"],
+["F*CK WHAT YOU THINK", "Main Source", "https://open.spotify.com/track/6ln80DtgYJI8yaivYj335u", "https://i.scdn.co/image/ab67616d0000b273d2e1a298ed360cdf65d1f224", "July 20, 2022", "Helen Killian"],
+["Horses", "Maggie Rogers", "https://open.spotify.com/track/6GRKAd64XPuij4RWeSUhSX", "https://i.scdn.co/image/ab67616d0000b2738adcd3dd0de8f1c516eec1d7", "July 20, 2022", "Andy Bainton"],
+["If Blue Could Be Happiness", "Florist", "https://open.spotify.com/track/7ANZJD6wzlHplIIA7AjsUx", "https://i.scdn.co/image/ab67616d0000b27324bf85b81a29469a406dedb1", "July 20, 2022", "Demery Coppolla"],
+["Lapdance", "N.E.R.D", "https://open.spotify.com/track/6FuAe03bP2SQT4TCDKhuGx", "https://i.scdn.co/image/ab67616d0000b273fdab242b02783baa895a5a70", "July 20, 2022", "Sam Bartusek"],
+["Over the Red Cedar", "Charlie Parr", "https://open.spotify.com/track/0Fmm2sbK4XZkFPQso5Qyll", "https://i.scdn.co/image/ab67616d0000b27399c82195dc98bbad0a6e160c", "July 20, 2022", "Tommy Maron"],
+["Shanghai", "King Gizzard & The Lizard Wizard", "https://open.spotify.com/track/6HlWKkzNE1WP67OGqtGeBW", "https://i.scdn.co/image/ab67616d0000b273f50080f094264011260c3bbb", "July 20, 2022", "Sarah von Doepp"],
+["Sports", "Beach Bunny", "https://open.spotify.com/track/77G0k1La0c5Dw8bAFANcyp", "https://i.scdn.co/image/ab67616d0000b273cd8c5684a88874b97247fa4a", "July 20, 2022", "Emily Sancomb"],
+["Sugar, We're Goin Down", "Fall Out Boy", "https://open.spotify.com/track/2TfSHkHiFO4gRztVIkggkE", "https://i.scdn.co/image/ab67616d0000b27371565eda831124be86c603d5", "July 20, 2022", "Otis the Dog"],
+["When You Wake up Feeling Old", "Wilco", "https://open.spotify.com/track/2cc0vgUmSTfWCIxfmdD2uS", "https://i.scdn.co/image/ab67616d0000b27321c8fd8cba79e6aaccc8ebf8", "July 20, 2022", "Bobby Lussier"],
+["Appalachian Nightmare", "Justin Townes Earle", "https://open.spotify.com/track/0VGwvrPZzJKfEsFEk7WBAg", "https://i.scdn.co/image/ab67616d0000b273e61be917f0b45f9cf6dcaba1", "July 21, 2022", "Tommy Maron"],
+["Sugar in the Creek", "Bendigo Fletcher", "https://open.spotify.com/track/7ceIJcA4Scip0WlJwwUnTS", "https://i.scdn.co/image/ab67616d0000b273b33842b35f19d5f8e459de08", "July 21, 2022", "Bobby Lussier"],
+["Once Twice Melody", "Beach House", "https://open.spotify.com/track/057rZ21MDp8Ld0TgQndNcv", "https://i.scdn.co/image/ab67616d0000b273ea27a9e38db1ec66119356af", "July 21, 2022", "Helen Killian"],
+["Once in a Lifetime Thing", "Gladys Knight & The Pips", "https://open.spotify.com/track/7g1XiIRh7mYrQobVzZCfdb", "https://i.scdn.co/image/ab67616d0000b273f9c903069dab033b532c4f7a", "July 21, 2022", "Andy Bainton"],
+["Rain", "Lucy Park", "https://open.spotify.com/track/72afDNRJsldkG7R02rRdA1", "https://i.scdn.co/image/ab67616d0000b27389c67a9555d8b9a02f62134f", "July 21, 2022", "Emily Sancomb"],
+["The Heart Part 5", "Kendrick Lamar", "https://open.spotify.com/track/5MMW4CZsZiZt2iuqAXzzWC", "https://i.scdn.co/image/ab67616d0000b27389877ffdd584dc9b7168044b", "July 21, 2022", "Jasper Jarecki"],
+["Un Simple Histoire - A Simple Story", "Thievery Corporation", "https://open.spotify.com/track/2hYDerClhzKhhkt1orcSBj", "https://i.scdn.co/image/ab67616d0000b27304e93d47237c8a89306ccc2f", "July 21, 2022", "Sarah von Doepp"],
+["Welcome to the Black Parade", "My Chemical Romance", "https://open.spotify.com/track/5wQnmLuC1W7ATsArWACrgW", "https://i.scdn.co/image/ab67616d0000b27317f77fab7e8f18d5f9fee4a1", "July 21, 2022", "Otis the Dog"],
+["Unsmart Lady", "Dry Cleaning", "https://open.spotify.com/track/3iY8QI12kti4hVZYMZvsbd", "https://i.scdn.co/image/ab67616d0000b2732ff2517e5a77704ffb15b23f", "July 21, 2022", "Demery Coppolla"],
+["Despicable Me", "Pharrell Williams", "https://open.spotify.com/track/2EOMe4XAS7U6UA1mhDs9tP", "https://i.scdn.co/image/ab67616d0000b273ef2e259ee0b34f61bea33b49", "July 22, 2022", "Sam Bartusek"],
+["Halfway Up", "The Brook & The Bluff", "https://open.spotify.com/track/5HsJGA8P5fPzR06i9FQKBr", "https://i.scdn.co/image/ab67616d0000b2732ac9afb222b3f9f0268237f1", "July 22, 2022", "Emily Sancomb"],
+["Ladaney (Woman's Name)", "Dur-Dur Band", "https://open.spotify.com/track/3ULrBvHp0BHVMShRHdBdXY", "https://i.scdn.co/image/ab67616d0000b27352af72d508e7e85c3ccd3273", "July 22, 2022", "Helen Killian"],
+["Let", "Pinegrove", "https://open.spotify.com/track/3O0Mp0GQ3JphRIH3Ga6ZaE", "https://i.scdn.co/image/ab67616d0000b2738bab7c3b9e12aaf0a4b3648a", "July 22, 2022", "Jasper Jarecki"],
+["Opioid (feat. Petite Noir)", "Tropics", "https://open.spotify.com/track/6gSvNgNd3LAn8aQKWBREFd", "https://i.scdn.co/image/ab67616d0000b273425bb5d1bbaa35377d012ac5", "July 22, 2022", "Sarah von Doepp"],
+["Rocky Raccoon - Remastered 2009", "The Beatles", "https://open.spotify.com/track/1ITQbrueGLl581a25XXm9c", "https://i.scdn.co/image/ab67616d0000b2734ce8b4e42588bf18182a1ad2", "July 22, 2022", "Demery Coppolla"],
+["Sunlight Bathed the Golden Glow", "Felt", "https://open.spotify.com/track/2UoPtpigX6buwUYuiZhoZa", "https://i.scdn.co/image/ab67616d0000b273485fd861a70599036d42c7d6", "July 22, 2022", "Bobby Lussier"],
+["Whiskey Deaf And Whiskey Blind", "Norman Blake", "https://open.spotify.com/track/3dzIzZNY6Ke58DbYJqkQ1B", "https://i.scdn.co/image/ab67616d0000b273e902d2467846e9912d387684", "July 22, 2022", "Tommy Maron"],
+["Who Cares?", "Cannonball Adderley", "https://open.spotify.com/track/71igtS6V0X6v1s53CWS1nO", "https://i.scdn.co/image/ab67616d0000b27391b6aee3974e905a5fc73728", "July 22, 2022", "Andy Bainton"],
+["Your Graduation", "Modern Baseball", "https://open.spotify.com/track/7kVoPBSlGghzLoQjODkxGD", "https://i.scdn.co/image/ab67616d0000b27398890ab31b06f44bcc40db75", "July 22, 2022", "Otis the Dog"],
+["17th Street Treatment Centre", "John K. Samson", "https://open.spotify.com/track/6BEgukrfUqytub9KLjuq2w", "https://i.scdn.co/image/ab67616d0000b273721bb0d4f7df6360b77f529c", "July 23, 2022", "Jasper Jarecki"],
+["Almost", "Bowling For Soup", "https://open.spotify.com/track/6TclVCUxDQm9s3Bey6Ao8H", "https://i.scdn.co/image/ab67616d0000b273f9b3ece3271d3a5fa73d3759", "July 23, 2022", "Otis the Dog"],
+["Birds Dont Sing", "TV Girl", "https://open.spotify.com/track/21LkHnuxPxVrOZ5gCaG7aM", "https://i.scdn.co/image/ab67616d0000b273e1bc1af856b42dd7fdba9f84", "July 23, 2022", "Sarah von Doepp"],
+["Brooklyn", "Mos Def", "https://open.spotify.com/track/4TIaZQlv6wM07hTc3uHSVV", "https://i.scdn.co/image/ab67616d0000b27389b56f56323925d57b38944d", "July 23, 2022", "Tommy Maron"],
+["Cinnamon Tree", "Marty O'Reilly & the Old Soul Orchestra", "https://open.spotify.com/track/1MBvaW8VuLtr5He0MCxTna", "https://i.scdn.co/image/ab67616d0000b273410b31ef5a7ad413695d310f", "July 23, 2022", "Demery Coppolla"],
+["IFHY (feat. Pharrell)", "Tyler, The Creator", "https://open.spotify.com/track/0NjW4SKY3gbfl2orl1p8hr", "https://i.scdn.co/image/ab67616d0000b2736be6806a01c452f360cab678", "July 23, 2022", "Helen Killian"],
+["Runaway Goliath", "Mantaraybryn", "https://open.spotify.com/track/2pI6ZxY5eRJ4pWRLL28xCP", "https://i.scdn.co/image/ab67616d0000b273fb06f1586df48ebef2cbb82d", "July 23, 2022", "Emily Sancomb"],
+["Stir It Up - Live At The Lyceum, London/July 18,1975", "Bob Marley & The Wailers", "https://open.spotify.com/track/2WKVaRAThLLvivsg1OIsNr", "https://i.scdn.co/image/ab67616d0000b2735a0ad5f9b4ab77de710860f2", "July 23, 2022", "Andy Bainton"],
+["The Big Rock Candy Mountain", "Harry McClintock", "https://open.spotify.com/track/6PIEE443qM0IS279RdW24q", "https://i.scdn.co/image/ab67616d0000b273ed9bf536c99084e1f7cdd1ac", "July 23, 2022", "Bobby Lussier"],
+["Clean up Woman", "Betty Wright", "https://open.spotify.com/track/6uqTETWok9npbL4c9cuLVh", "https://i.scdn.co/image/ab67616d0000b2737163b82729a39208df40c3e4", "July 24, 2022", "Sarah von Doepp"],
+["FIGHT", "BROCKHAMPTON", "https://open.spotify.com/track/7sJ7zlySCbRw6OjlLhVQMt", "https://i.scdn.co/image/ab67616d0000b2737d15fb20303a589acc1ab98b", "July 24, 2022", "Demery Coppolla"],
+["Funky President (People It's Bad)", "James Brown", "https://open.spotify.com/track/01xhntcYe1f5EqHc2T7pep", "https://i.scdn.co/image/ab67616d0000b273818c45ca29446e7352ba187f", "July 24, 2022", "Andy Bainton"],
+["Green To Me", "Hum", "https://open.spotify.com/track/7sLi0mKQvzwwaqIwwdBPNp", "https://i.scdn.co/image/ab67616d0000b273d8b8a56e7eb2501765bb945e", "July 24, 2022", "Sam Bartusek"],
+["Ocean Avenue", "Yellowcard", "https://open.spotify.com/track/23oxJmDc1V9uLUSmN2LIvx", "https://i.scdn.co/image/ab67616d0000b273d1fd8f264564d9eef7617a45", "July 24, 2022", "Otis the Dog"],
+["Out of Sorts", "Atta Boy", "https://open.spotify.com/track/6wsutjN16jat9ip9JFfdLX", "https://i.scdn.co/image/ab67616d0000b273dff85da64d2bb4152516169c", "July 24, 2022", "Emily Sancomb"],
+["Poke It Out (with Nicki Minaj)", "Playboi Carti", "https://open.spotify.com/track/2rPSFKzGeqUWwfcCFVkkq3", "https://i.scdn.co/image/ab67616d0000b273a1e867d40e7bb29ced5c0194", "July 24, 2022", "Jasper Jarecki"],
+["Trucker Speed", "Fred Eaglesmith", "https://open.spotify.com/track/46odp6vkKYlv0fPdRhdk1Y", "https://i.scdn.co/image/ab67616d0000b273d0575a34b2631b40a05e56c2", "July 24, 2022", "Bobby Lussier"],
+["We Are All Compost in Training", "Pat The Bunny", "https://open.spotify.com/track/1HhHudriGFvChltqEODKu4", "https://i.scdn.co/image/ab67616d0000b273e6bb42619683e6af851adca1", "July 24, 2022", "Tommy Maron"],
+["Mississippi Half-Step Uptown Toodeloo - Live at Community War Memorial,Rochester,NY,November 5,1971", "Greatful Dead", "https://open.spotify.com/track/32R2Uo4qoWm8aMOCm2ZV98", "https://i.scdn.co/image/ab67616d0000b273dc245d1be391b12e9bb324d1", "July 24, 2022", "Helen Killian"],
+         ];
+
+         var array = [];
+for(var z = 0; z < fullarray.length; z++){
+if(newdate == fullarray[z][4]){array.push(fullarray[z]);}
+}
+
+       array = array.sort();
+
+        // var num = Math.floor( Math.random() * array.length );
+        var num = 0;
+
+  
+         
+         function getRandomTitle() {
+            if (typeof array[num] === 'undefined'){
+               document.write("<span id = 'none'>Week 1:</span><h5 onclick='week(this.id)' id='day1' class='week'>July 18, 2022</h5><h5 onclick='week(this.id)' id='day2' class='week'>July 19, 2022</h5><h5 onclick='week(this.id)' id='day3' class='week'>July 20, 2022</h5><h5 onclick='week(this.id)' id='day4' class='week'>July 21, 2022</h5><h5 onclick='week(this.id)' id='day5' class='week'>July 22, 2022</h5><h5 onclick='week(this.id)' id='day6' class='week'>July 23, 2022</h5><h5 onclick='week(this.id)' id='day7' class='week'>July 24, 2022</h5>");
+            }
+            else{
+         var title = array[num][0];
+          var artist = array[num][1];
+          var lnk = array[num][2];
+          var img = array[num][3]; 
+         	document.write("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
+            document.getElementById("user").innerHTML = (array[num][5]);
+            document.getElementById("user").setAttribute('style','text-align:left;');
+         }
+          document.close();
+         }
+bonusnum = num;
+          function up() {
+             $("#background").removeClass("pause");
+             bonusnum = bonusnum -1;
+             if (bonusnum < 0){bonusnum = 0;}
+          var btitle = array[bonusnum][0];
+          var bartist = array[bonusnum][1];
+          var blnk = array[bonusnum][2];
+          var bimg = array[bonusnum][3];
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+blnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+bimg+"'><h3 id='title'>"+btitle+"</h3><h4 id='artist'>"+bartist+"</h4>");
+if (bonusnum == 0){
+$("#background").css('background-color', 'rebeccapurple');
+}
+else if (bonusnum == 1){
+$("#background").css('background-color', 'skyblue');
+}
+else if (bonusnum == 2){
+$("#background").css('background-color', '#dbc12e');
+}
+else if (bonusnum == 3){
+$("#background").css('background-color', 'tomato');
+}
+else if (bonusnum == 4){
+$("#background").css('background-color', 'mediumspringgreen');
+}
+else if (bonusnum == 5){
+$("#background").css('background-color', '#ffbcd9');
+}
+else if (bonusnum == 6){
+$("#background").css('background-color', 'goldenrod');
+}
+else if (bonusnum == 7){
+$("#background").css('background-color', 'thistle');
+}
+else if (bonusnum == 8){
+$("#background").css('background-color', 'burlywood');
+}
+else if (bonusnum == 9){
+$("#background").css('background-color', '#B5B5AC');
+}
+document.getElementById("user").innerHTML = (array[bonusnum][5]);
+document.getElementById("user").setAttribute('style','text-align:left;');
+usertextcolor = $("#background").css("background-color");
+$("#user").css("color", usertextcolor);
+$("#search").css("color", usertextcolor);
+          document.close();
+         }
+
+                  function down() {
+                      $("#background").removeClass("pause");
+             bonusnum = bonusnum + 1;
+             if (bonusnum == 10){
+$("#background").css('background-color', 'black');
+$("#user").css("color", "black");
+$("#search").css("color", "black");
+caught = 1;
+}
+else{
+   caught = 0;
+}
+             if (bonusnum > array.length-1){
+               bonusnum = array.length;
+               document.getElementById("randdemo").innerHTML = ("<span id = 'done'>all caught up!</span>");
+               document.getElementById("user").innerHTML = ("");
+               document.getElementById("user").setAttribute('style','text-align:left;');
+
+             }
+             else{
+          var utitle = array[bonusnum][0];
+          var uartist = array[bonusnum][1];
+          var ulnk = array[bonusnum][2];
+          var uimg = array[bonusnum][3];
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+ulnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+uimg+"'><h3 id='title'>"+utitle+"</h3><h4 id='artist'>"+uartist+"</h4>");
+if (caught ==1){}
+else{
+if (bonusnum == 0){
+$("#background").css('background-color', 'rebeccapurple');
+}
+else if (bonusnum == 1){
+$("#background").css('background-color', 'skyblue');
+}
+else if (bonusnum == 2){
+$("#background").css('background-color', '#dbc12e');
+}
+else if (bonusnum == 3){
+$("#background").css('background-color', 'tomato');
+}
+else if (bonusnum == 4){
+$("#background").css('background-color', 'mediumspringgreen');
+}
+else if (bonusnum == 5){
+$("#background").css('background-color', '#ffbcd9');
+}
+else if (bonusnum == 6){
+$("#background").css('background-color', 'goldenrod');
+}
+else if (bonusnum == 7){
+$("#background").css('background-color', 'thistle');
+}
+else if (bonusnum == 8){
+$("#background").css('background-color', 'burlywood');
+}
+else if (bonusnum == 9){
+$("#background").css('background-color', '#B5B5AC');
+}
+}
+document.getElementById("user").innerHTML = (array[bonusnum][5]);
+usertextcolor = $("#background").css("background-color");
+$("#user").css("color", usertextcolor);
+$("#search").css("color", usertextcolor);
+}
+          document.close();
+         }
+         function getuserlist(){
+            var userlisting = [];
+
+            for(var w = 0; w < fullarray.length; w++){
+               if (!userlisting.includes(fullarray[w][5]+"</span><br>")) {
+                userlisting.push(fullarray[w][5]+"</span><br>");  
+               }
+            }
+            userlisting.sort();
+            userlisting = userlisting.map(i => "<span id='user"+userlisting.indexOf(i)+"' onclick='thisUser(this.id)'>" + i);
+            const withoutCommas = userlisting.join('');
+            document.getElementById("userlist").innerHTML = (withoutCommas);
+            document.close();
+         }
+var compare_dates = function(date1,date2){
+
+      var d1= new Date(date1[4]);
+     var d2= new Date(date2[4]);
+      if (d1>d2) return 1;
+       else if (d1<d2)  return -1;
+       else return 0;
+    }
+         function thisUser(clicked_id){
+            array = [];
+            for(var v = 0; v < fullarray.length; v++){
+               if (document.getElementById(clicked_id).innerHTML == fullarray[v][5]){
+                  array.push(fullarray[v]);
+                  array[array.length-1][5] = array[array.length-1][5]+" ("+fullarray[v][4]+")";
+               }
+            }
+array = array.sort(compare_dates);
+
+num = 0;
+bonusnum = 0;
+
+title = array[num][0];
+artist = array[num][1];
+lnk = array[num][2];
+img = array[num][3]; 
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
+            document.getElementById("user").innerHTML = (array[num][5]);
+//$("#header").toggleClass("green");
+$("#randdemo").toggle();
+$("#user").toggle();
+//$("#sortuser").toggle();
+$("#userlist").hide();
+$("#sortuser").removeClass("toggle");
+         }
+
+
+   function week(clicked_id){
+            array = [];
+            for(var q = 0; q < fullarray.length; q++){
+               if (document.getElementById(clicked_id).innerHTML == fullarray[q][4]){
+                  array.push(fullarray[q]);
+               }
+            }
+array = array.sort();
+
+
+num = 0;
+bonusnum = 0;
+
+title = array[num][0];
+artist = array[num][1];
+lnk = array[num][2];
+img = array[num][3]; 
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
+   document.getElementById("user").innerHTML = (array[num][5]);
+//$("#header").removeClass("green");
+$("#randdemo").show();
+$("#user").show();
+//$("#sortuser").hide();
+$("#userlist").hide();
+         } 
+      </script>
+   <!--   <img src ="http://cdn.onlinewebfonts.com/svg/img_569204.png" id="button" class="fa-archive">-->
+   <img id="logo" src="https://data.whicdn.com/images/331836944/original.jpg"><h2 id="user"></h2>
+   <img id="fulllogo" src="https://data.whicdn.com/images/331836944/original.jpg"><h2 id="yourname">Ben Gottlieb <span class="pronouns">(he/him)</span></h2>
+   <h2 id="friends">friends</h2>
+   <h2 id="lists">lists</h2>
+   <h2 id="search">+</h2>
+   <h2 id="calendarbtn">c</h2>
+   <h2 id="back">&#8678;</h2>
+   <h2 id="set">e</h2>
+   <div id="sodbox"></div>
+   <img id="sod" src="https://media.pitchfork.com/photos/60c18a5c42a3ecb7ba100fb6/master/pass/Sling%20Artwork.jpg">
+   <h2 id="emotion">&#128513;</h2>
+   <h2 id="sodtitle">Amoeba<br><span class="pronouns">Clairo</span></h2>
+   <h2 id="soddesc">This song slaps it's Clairo what else would you expect from this genius. Love the little swells after the chorus and the power that comes from her gentle sing-along layered vocals.</h2>
+   <h2 id="soddate">Today</h2>
+   <div id="sodbbox"></div>
+   <img id="sodb" src="https://media.pitchfork.com/photos/5929c52ec0084474cd0c36ba/1:1/w_600/ce3d846c.jpg">
+   <h2 id="emotionb">&#128544;</h2>
+   <h2 id="sodbtitle">Pull Up The People<br><span class="pronouns">M.I.A.</span></h2>
+   <h2 id="sodbdate">Yesterday</h2>
+   <div id="sodcbox"></div>
+   <img id="sodc" src="https://media.pitchfork.com/photos/5e4d5209f98c800008cf6620/1:1/w_600/King-Krule-Man-Alive.jpg">
+   <h2 id="emotionc">&#128546;</h2>
+   <h2 id="sodctitle">Comet Face<br><span class="pronouns">King Krule</span></h2>
+   <h2 id="sodcdate">Monday</h2>
+   
+
+   <!--<img id="fava" src="https://media.pitchfork.com/photos/6019c4746b8896f27d271791/1:1/w_600/Nana-Yamato.jpg">
+   <h2 id="favatitle">Gaito<br><span class="pronouns">Nana Yamato</span></h2>
+   <img id="favb" src="https://media.pitchfork.com/photos/5929c52ec0084474cd0c36ba/1:1/w_600/ce3d846c.jpg">
+   <h2 id="favbtitle">Pull Up The People<br><span class="pronouns">M.I.A.</span></h2>
+   <img id="favc" src="https://f4.bcbits.com/img/a4025603315_10.jpg">
+   <h2 id="favctitle">Metal Gear<br><span class="pronouns">Body Meat</span></h2>-->
+   <input id="centralsearch" type="search" name="" placeholder="search...">
+   <!--<h2 id="searchbysong">songs</h2>-->
+   <h5 id="sortuser" style="display: none;">sort by user</h5>
+   <div id="background" onclick="down()"></div>
+   <div id="leftbackground" onclick="up()"></div>
+   <div id="searchbackground"></div>
+   <div id="rhysbar"></div>
+   <div id="switchcontainer">
+   <div id="bezel"></div>
+
+      <!--<i class="fa fa-calendar" onclick="date()" aria-hidden="true"></i>-->
+      <div class="album" id="randdemo" style='visibility: visible;'>
+        <script>getRandomTitle();</script>
+      </div>
+      <div id="calendar" style="display: none;">
+      </div>
+      <div id="datepicker" style="display: none;"></div>
+ 
+<script>
+    $( function() {
+    $( "#datepicker" ).datepicker(/*{put minmax here}*/);
+  });
+    $("#datepicker").datepicker({
+   onSelect: function(dateText, inst) { 
+      var dateAsString = dateText;
+      var ayo = dateAsString.substring(0,2)-1;
+      var ayoMonth = monthNames[ayo];
+      var formalayo = ayoMonth + " " + dateAsString.substring(3,5) + ", 20" + dateAsString.substring(8,13);
+      document.getElementById("date").innerHTML = (formalayo);
+
+      array = [];
+for(var x = 0; x < fullarray.length; x++){
+if(formalayo == fullarray[x][4]){array.push(fullarray[x]);}
+}
+array = array.sort();
+
+num = 0;
+bonusnum = 0;
+
+if (typeof array[num] === 'undefined'){
+   document.getElementById("randdemo").innerHTML = ("<span id = 'none'>no songs today</span>");
+   document.getElementById("user").innerHTML = ("");
+}
+
+
+else{
+   title = array[num][0];
+artist = array[num][1];
+lnk = array[num][2];
+img = array[num][3]; 
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
+            document.getElementById("user").innerHTML = (array[num][5]);
+}
+//$("#header").toggleClass("green");
+$("#randdemo").toggle();
+$("#user").toggle();
+$("#datepicker").toggle();
+$("#sortuser").hide();
+  
+   }
+});
+</script> 
+      <script>
+$("#search").click(function(){
+    $("#background").hide();
+    $("#leftbackground").hide();
+    $("#searchbackground").show();
+    $("#logo").hide();
+    $("#user").hide();
+    $("#calendarbtn").show();
+    $("#search").hide();
+    $("#title").hide();
+    $("#artist").hide();
+    $(".mainimg").hide();
+    $("#back").show();
+    $("input").show();
+  });
+$("#back").click(function(){
+    $("#background").show();
+    $("#leftbackground").show();
+    $("#searchbackground").hide();
+    $("#logo").show();
+    $("#user").show();
+    $("#calendarbtn").hide();
+    $("#search").show();
+    $("#title").show();
+    $("#artist").show();
+    $(".mainimg").show();
+    $("#back").hide();
+    $("input").hide();
+    $("#fulllogo").hide();
+    $("#yourname").hide();
+    $("#lists,#friends").hide();
+    $("#set").hide();
+   // $("#sodbox,#sod,#sodtitle,#soddesc,#emotion,#fava,#favb,#favc,#favatitle,#favbtitle,#favctitle").hide();
+   $("#sodbox,#sod,#sodtitle,#soddesc,#soddate,#emotion").hide();
+   $("#sodbbox,#sodb,#sodbtitle,#sodbdate,#emotionb").hide();
+   $("#sodcbox,#sodc,#sodctitle,#sodcdate,#emotionc").hide();
+  });
+$("#logo").click(function(){
+    $("#background").hide();
+    $("#leftbackground").hide();
+    $("#searchbackground").show();
+    $("#logo").hide();
+    $("#user").hide();
+    $("#calendarbtn").hide();
+    $("#search").hide();
+    $("#title").hide();
+    $("#artist").hide();
+    $(".mainimg").hide();
+    $("#back").show();
+    $("#fulllogo").show();
+    $("#yourname").show();
+    $("#lists,#friends").show();
+    $("#set").show();
+  //  $("#fava,#favb,#favc,#favatitle,#favbtitle,#favctitle").show();
+  $("#sodbox,#sod,#sodtitle,#soddesc,#soddate,#emotion").show();
+  $("#sodbbox,#sodb,#sodbtitle,#sodbdate,#emotionb").show();
+  $("#sodcbox,#sodc,#sodctitle,#sodcdate,#emotionc").show();
+  });
+function goddammit(){
+   $("#background").toggleClass("pause");
+   usertextcolor = $("#background").css("background-color");
+$("#user").css("color", usertextcolor);
+$("#search").css("color", usertextcolor);
+console.log("wait does this work");
+}
+
+      $('#header').click(function() {
+         /*if ($(this).hasClass('green')){
+             $("#datepicker").hide();
+             $("#sortuser").hide();
+             $("#randdemo").show();
+            $("#user").show();
+             $("#userlist").hide();
+             $("#sortuser").removeClass("toggle");
+         }
+         else{
+            $("#datepicker").show();
+             $("#sortuser").show();
+             $("#randdemo").hide();
+            $("#user").hide();
+         }
+         $(this).toggleClass("green");*/
+          document.getElementById("randdemo").innerHTML = ("<span id = 'none'>Week 1:</span><h5 onclick='week(this.id)' id='day1' class='week'>July 18, 2022</h5><h5 onclick='week(this.id)' id='day2' class='week'>July 19, 2022</h5><h5 onclick='week(this.id)' id='day3' class='week'>July 20, 2022</h5><h5 onclick='week(this.id)' id='day4' class='week'>July 21, 2022</h5><h5 onclick='week(this.id)' id='day5' class='week'>July 22, 2022</h5><h5 onclick='week(this.id)' id='day6' class='week'>July 23, 2022</h5><h5 onclick='week(this.id)' id='day7' class='week'>July 24, 2022</h5>");
+            $("#user").hide();
+            $("#sortuser").removeClass("toggle");
+            $("#randdemo").show();
+            $("#userlist").hide();
+
+        });
+      $('#sortuser').click(function() {
+         //   $("#datepicker").toggle();
+            $("#userlist").toggle();
+            $(this).toggleClass("toggle");
+            $("#randdemo").toggle();
+            $("#user").hide();
+        });
+</script>
+      </script>
+      <script>
+         window.addEventListener("keydown", checkKeyPressed, false);
+         
+         function checkKeyPressed(evt) {
+             if (evt.keyCode == "13") {
+                    window.location.reload();
+             }
+         }
+      </script>
+   </body>
+</html>
