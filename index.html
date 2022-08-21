@@ -187,7 +187,7 @@
          .pronouns{
             font-weight: normal; color: grey;
          }
-         #friends{
+         #songs{
             position: absolute;
          top: 50%;
          margin-top: -210px;
@@ -201,17 +201,29 @@
    z-index: 1;  
    display: none; 
          }
+         #friends{
+            position: absolute;
+         top: 50%;
+         margin-top: -210px;
+         margin-left: calc(50% - 87.5px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: white;
+   z-index: 1;  
+   display: none; 
+         }
                   #lists{
             position: absolute;
          top: 50%;
          margin-top: -210px;
-         margin-left: calc(50% - 80px);
+         margin-left: calc(50% - 22.5px);
    font-size: 14px;
    padding: 5px;
    border-radius: 5px;
-   background-color: white;
    text-align: left !important;
-   color: black;
+   color: white;
    z-index: 1;  
    display: none; 
          }
@@ -300,30 +312,13 @@
    width: 27.5px;
    display: none;
          } 
-      #set{
-    position: absolute;
-         top: 50%;
-         margin-top: -320px;
-         margin-left: calc(50% + 126.5px);
-           border-radius: 50%;
-   font-size: 25px;
-   line-height: 25px;
-   border-radius: 50%;
-   background-color: white;
-   text-align: center;
-   color: black;
-   z-index: 1;
-   height: 27.5px;
-   width: 27.5px;
-   display: none;
-         } 
-         #fava{
+         .fava{
             position: fixed;
          top: 50%;
          left: 50%;
          transform: translate(-50%, -50%); 
          margin-left: -100px;
-         margin-top: 40px;
+         margin-top: -190px;
          display: none;
          }
          #favb{
@@ -332,7 +327,7 @@
          left: 50%;
          transform: translate(-50%, -50%);
          margin-left: -100px; 
-         margin-top: 90px;
+         margin-top: -140px;
          display: none;
          }
          #favc{
@@ -341,13 +336,13 @@
          left: 50%;
          transform: translate(-50%, -50%); 
          margin-left: -100px;
-         margin-top: 140px;
+         margin-top: -90px;
          display: none;
          }
-         #favatitle{
+         .favatitle{
    position: absolute;
    top: 50%;
-   margin-top: 20px;
+   margin-top: -210px;
    margin-left: calc(50% - 70px);
    font-size: 14px;
    padding: 5px;
@@ -361,7 +356,7 @@
          #favbtitle{
              position: absolute;
    top: 50%;
-   margin-top: 70px;
+   margin-top: -160px;
    margin-left: calc(50% - 70px);
    font-size: 14px;
    padding: 5px;
@@ -375,7 +370,7 @@
       #favctitle{
              position: absolute;
    top: 50%;
-   margin-top: 120px;
+   margin-top: -110px;
    margin-left: calc(50% - 70px);
    font-size: 14px;
    padding: 5px;
@@ -470,13 +465,14 @@ position: absolute;
             position: fixed;
          top: 50%;
          left: 50%;
-         margin-top: 80px;
+         margin-top: -110px;
          transform: translate(-50%, -50%);
          width: 270px;
          height: 85px;
          background-color: white;
          border-radius: 10px;
          display: none;
+         z-index: 300;
          }
                   #sodb{
          position: fixed;
@@ -484,41 +480,41 @@ position: absolute;
          left: 50%;
          transform: translate(-50%, -50%); 
          margin-left: -100px;
-         margin-top: 70px;
-         z-index: 200;
+         margin-top: -120px;
+         z-index: 300;
          display: none;
          }
          #sodbtitle{
           position: absolute;
    top: 50%;
-   margin-top: 47.5px;
+   margin-top: -142.5px;
    margin-left: calc(50% - 70px);
    font-size: 14px;
    padding: 5px;
    border-radius: 5px;
    text-align: left !important;
    color: black;
-   z-index: 200;
+   z-index: 300;
    font-weight: bold;  
    display: none;
          }
     #sodbdate{
 position: absolute;
    top: 50%;
-   margin-top: 95px;
+   margin-top: -95px;
    margin-left: calc(50% - 120px);
    font-size: 12px;
    padding: 5px;
    border-radius: 5px;
    text-align: left !important;
    color: grey;
-   z-index: 200;
+   z-index: 300;
    display: none;  
          }
          #emotionb{
    position: absolute;
    top: 50%;
-   margin-top: 55px;
+   margin-top: -135px;
    margin-left: calc(50% + 90px);
    font-size: 14px;
    padding: 5px 6.5px 5px 6.5px;
@@ -527,7 +523,7 @@ position: absolute;
    color: black;
    background-color: black;
    background-color: tomato;
-   z-index: 200;
+   z-index: 300;
    font-weight: bold;
    display: none;
          }
@@ -535,7 +531,7 @@ position: absolute;
             position: fixed;
          top: 50%;
          left: 50%;
-         margin-top: 180px;
+         margin-top: -10px;
          transform: translate(-50%, -50%);
          width: 270px;
          height: 85px;
@@ -549,14 +545,14 @@ position: absolute;
          left: 50%;
          transform: translate(-50%, -50%); 
          margin-left: -100px;
-         margin-top: 170px;
+         margin-top: -20px;
          z-index: 200;
          display: none;
          }
          #sodctitle{
           position: absolute;
    top: 50%;
-   margin-top: 147.5px;
+   margin-top: -42.5px;
    margin-left: calc(50% - 70px);
    font-size: 14px;
    padding: 5px;
@@ -570,7 +566,7 @@ position: absolute;
     #sodcdate{
 position: absolute;
    top: 50%;
-   margin-top: 195px;
+   margin-top: 5px;
    margin-left: calc(50% - 120px);
    font-size: 12px;
    padding: 5px;
@@ -583,7 +579,7 @@ position: absolute;
          #emotionc{
    position: absolute;
    top: 50%;
-   margin-top: 155px;
+   margin-top: -35px;
    margin-left: calc(50% + 90px);
    font-size: 14px;
    padding: 5px 6.5px 5px 6.5px;
@@ -592,6 +588,71 @@ position: absolute;
    color: black;
    background-color: black;
    background-color: rebeccapurple;
+   z-index: 200;
+   font-weight: bold;
+   display: none;
+         }
+         #soddbox{
+            position: fixed;
+         top: 50%;
+         left: 50%;
+         margin-top: 90px;
+         transform: translate(-50%, -50%);
+         width: 270px;
+         height: 85px;
+         background-color: white;
+         border-radius: 10px;
+         display: none;
+         }
+                  #sodd{
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%); 
+         margin-left: -100px;
+         margin-top: 80px;
+         z-index: 200;
+         display: none;
+         }
+         #soddtitle{
+          position: absolute;
+   top: 50%;
+   margin-top: 57.5px;
+   margin-left: calc(50% - 70px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: black;
+   z-index: 200;
+   font-weight: bold;  
+   display: none;
+         }
+    #sodddate{
+position: absolute;
+   top: 50%;
+   margin-top: 105px;
+   margin-left: calc(50% - 120px);
+   font-size: 12px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: grey;
+   z-index: 200;
+   display: none;  
+         }
+         #emotiond{
+   position: absolute;
+   top: 50%;
+   margin-top: 65px;
+   margin-left: calc(50% + 90px);
+   font-size: 14px;
+   padding: 5px 6.5px 5px 6.5px;
+   border-radius: 50%;
+   text-align: left !important;
+   color: black;
+   background-color: black;
+   background-color: mediumspringgreen;
    z-index: 200;
    font-weight: bold;
    display: none;
@@ -686,13 +747,24 @@ position: absolute;
          height: 30px;
          /*border: solid 2.5px black;*/
          border: none;
-         background-color:#F5F5F5;
+         background-color: black;
+         color: white;
          border-radius: 5px;
-         font-size: 14px;
+         font-size: 18px;
          display: none;
          padding-left: 10px;
-         width: 210px;
+         width: 230px;
+         margin-left: 10px;
+         font-weight: bold;
          }
+         input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
          input:focus {
             border: none;
  outline: none;
@@ -708,6 +780,31 @@ position: absolute;
    width: 120px;
    background-color: white;
    border-radius: 50px;
+}
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         max-width: 300px;
+   margin-top: -250px;
+   display: none;
+   -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;
+}
+
+div.scrollmenu h2{
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  margin-right: 10px;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  text-decoration: none;
 }
       </style>
    </head>
@@ -1045,12 +1142,18 @@ $("#userlist").hide();
    <!--   <img src ="http://cdn.onlinewebfonts.com/svg/img_569204.png" id="button" class="fa-archive">-->
    <img id="logo" src="https://data.whicdn.com/images/331836944/original.jpg"><h2 id="user"></h2>
    <img id="fulllogo" src="https://data.whicdn.com/images/331836944/original.jpg"><h2 id="yourname">Ben Gottlieb <span class="pronouns">(he/him)</span></h2>
-   <h2 id="friends">friends</h2>
-   <h2 id="lists">lists</h2>
+   <h2 id="songs">Songs</h2>
+   <h2 id="friends">Friends</h2>
+   <h2 id="lists">Lists</h2>
    <h2 id="search">+</h2>
-   <h2 id="calendarbtn">c</h2>
+  <!-- <h2 id="calendarbtn">c</h2>-->
    <h2 id="back">&#8678;</h2>
-   <h2 id="set">e</h2>
+   <div class="scrollmenu">
+  <h2 style="background-color: white; color: black;">Songs</h2>
+  <h2>Friends</h2>
+  <h2>Lists</h2>
+  <h2>Dates</h2>
+</div>
    <div id="sodbox"></div>
    <img id="sod" src="https://media.pitchfork.com/photos/60c18a5c42a3ecb7ba100fb6/master/pass/Sling%20Artwork.jpg">
    <h2 id="emotion">&#128513;</h2>
@@ -1061,21 +1164,40 @@ $("#userlist").hide();
    <img id="sodb" src="https://media.pitchfork.com/photos/5929c52ec0084474cd0c36ba/1:1/w_600/ce3d846c.jpg">
    <h2 id="emotionb">&#128544;</h2>
    <h2 id="sodbtitle">Pull Up The People<br><span class="pronouns">M.I.A.</span></h2>
-   <h2 id="sodbdate">Yesterday</h2>
+   <h2 id="sodbdate">Today</h2>
    <div id="sodcbox"></div>
    <img id="sodc" src="https://media.pitchfork.com/photos/5e4d5209f98c800008cf6620/1:1/w_600/King-Krule-Man-Alive.jpg">
    <h2 id="emotionc">&#128546;</h2>
    <h2 id="sodctitle">Comet Face<br><span class="pronouns">King Krule</span></h2>
-   <h2 id="sodcdate">Monday</h2>
+   <h2 id="sodcdate">Yesterday</h2>
+   <div id="soddbox"></div>
+   <img id="sodd" src="https://images.genius.com/ee71a34bb37d526a914cb3f34e27fdc6.640x640x1.jpg">
+   <h2 id="emotiond">&#128513;</h2>
+   <h2 id="soddtitle">Thankful<br><span class="pronouns">454</span></h2>
+   <h2 id="sodddate">Monday</h2>
    
 
-   <!--<img id="fava" src="https://media.pitchfork.com/photos/6019c4746b8896f27d271791/1:1/w_600/Nana-Yamato.jpg">
-   <h2 id="favatitle">Gaito<br><span class="pronouns">Nana Yamato</span></h2>
-   <img id="favb" src="https://media.pitchfork.com/photos/5929c52ec0084474cd0c36ba/1:1/w_600/ce3d846c.jpg">
-   <h2 id="favbtitle">Pull Up The People<br><span class="pronouns">M.I.A.</span></h2>
-   <img id="favc" src="https://f4.bcbits.com/img/a4025603315_10.jpg">
-   <h2 id="favctitle">Metal Gear<br><span class="pronouns">Body Meat</span></h2>-->
-   <input id="centralsearch" type="search" name="" placeholder="search...">
+   <img class="fava" src="https://media.pitchfork.com/photos/5d2750847953c00009b978cb/1:1/w_600/Clairo_Immunity.jpg">
+   <h2 class="favatitle">Sofia<br><span class="pronouns">Clairo</span></h2>
+   <img class="fava" style="margin-top: -135px;" src="https://cdn.albumoftheyear.org/album/265330-bubble-gum.jpg">
+   <h2 class="favatitle" style="margin-top: -155px;">Bubble Gum<br><span class="pronouns">Clairo</span></h2>
+   <img class="fava" style="margin-top: -80px;" src="https://m.media-amazon.com/images/I/81KA8z8t8CL._SS500_.jpg">
+   <h2 class="favatitle" style="margin-top: -100px;">Pretty Girl<br><span class="pronouns">Clairo</span></h2>
+   <img class="fava" style="margin-top: -25px;" src="https://i.scdn.co/image/ab67616d0000b27390c00af3fd8de6b9f510c1b8">
+   <h2 class="favatitle" style="margin-top: -45px;">Flaming Hot Cheetos<br><span class="pronouns">Clairo</span></h2>
+   <img class="fava" style="margin-top: 30px;" src="https://media.pitchfork.com/photos/60c18a5c42a3ecb7ba100fb6/1:1/w_600/Sling%20Artwork.jpg">
+   <h2 class="favatitle" style="margin-top: 10px;">Amoeba<br><span class="pronouns">Clairo</span></h2>
+   <img class="fava" style="margin-top: 85px;" src="https://media.pitchfork.com/photos/5d2750847953c00009b978cb/1:1/w_600/Clairo_Immunity.jpg">
+   <h2 class="favatitle" style="margin-top: 65px;">Bags<br><span class="pronouns">Clairo</span></h2>
+   <img class="fava" style="margin-top: 140px;" src="https://static.wikia.nocookie.net/clairopedia/images/b/b9/Clairo-4Ever-Single-iTunes.jpg/revision/latest?cb=20210329092704">
+   <h2 class="favatitle" style="margin-top: 120px;">4EVER<br><span class="pronouns">Clairo</span></h2>
+   <img class="fava" style="margin-top: 195px;" src="https://i.scdn.co/image/ab67616d0000b273bf94e27360806b5aa5025f93">
+   <h2 class="favatitle" style="margin-top: 175px;">How - demo<br><span class="pronouns">Clairo</span></h2>
+   <img class="fava" style="margin-top: 250px;" src="https://i.scdn.co/image/ab67616d0000b273bf94e27360806b5aa5025f93">
+   <h2 class="favatitle" style="margin-top: 230px;">Hello?<br><span class="pronouns">Clairo</span></h2>
+   <img class="fava" style="margin-top: 305px;" src="https://media.pitchfork.com/photos/5d2750847953c00009b978cb/1:1/w_600/Clairo_Immunity.jpg">
+   <h2 class="favatitle" style="margin-top: 285px;">Softly<br><span class="pronouns">Clairo</span></h2>
+   <input id="centralsearch" type="search" name="" placeholder="search songs..." value="Clairo">
    <!--<h2 id="searchbysong">songs</h2>-->
    <h5 id="sortuser" style="display: none;">sort by user</h5>
    <div id="background" onclick="down()"></div>
@@ -1145,12 +1267,14 @@ $("#search").click(function(){
     $("#logo").hide();
     $("#user").hide();
     $("#calendarbtn").show();
+    $(".scrollmenu").show();
     $("#search").hide();
     $("#title").hide();
     $("#artist").hide();
     $(".mainimg").hide();
     $("#back").show();
     $("input").show();
+    $(".fava,#favb,#favc,.favatitle,#favbtitle,#favctitle").show();
   });
 $("#back").click(function(){
     $("#background").show();
@@ -1159,6 +1283,7 @@ $("#back").click(function(){
     $("#logo").show();
     $("#user").show();
     $("#calendarbtn").hide();
+    $(".scrollmenu").hide();
     $("#search").show();
     $("#title").show();
     $("#artist").show();
@@ -1167,12 +1292,12 @@ $("#back").click(function(){
     $("input").hide();
     $("#fulllogo").hide();
     $("#yourname").hide();
-    $("#lists,#friends").hide();
-    $("#set").hide();
-   // $("#sodbox,#sod,#sodtitle,#soddesc,#emotion,#fava,#favb,#favc,#favatitle,#favbtitle,#favctitle").hide();
-   $("#sodbox,#sod,#sodtitle,#soddesc,#soddate,#emotion").hide();
+    $("#lists,#friends,#songs").hide();
+    $(".fava,#favb,#favc,.favatitle,#favbtitle,#favctitle").hide();
+   //$("#sodbox,#sod,#sodtitle,#soddesc,#soddate,#emotion").hide();
    $("#sodbbox,#sodb,#sodbtitle,#sodbdate,#emotionb").hide();
    $("#sodcbox,#sodc,#sodctitle,#sodcdate,#emotionc").hide();
+   $("#soddbox,#sodd,#soddtitle,#sodddate,#emotiond").hide();
   });
 $("#logo").click(function(){
     $("#background").hide();
@@ -1181,6 +1306,7 @@ $("#logo").click(function(){
     $("#logo").hide();
     $("#user").hide();
     $("#calendarbtn").hide();
+    $(".scrollmenu").hide();
     $("#search").hide();
     $("#title").hide();
     $("#artist").hide();
@@ -1188,12 +1314,11 @@ $("#logo").click(function(){
     $("#back").show();
     $("#fulllogo").show();
     $("#yourname").show();
-    $("#lists,#friends").show();
-    $("#set").show();
-  //  $("#fava,#favb,#favc,#favatitle,#favbtitle,#favctitle").show();
-  $("#sodbox,#sod,#sodtitle,#soddesc,#soddate,#emotion").show();
+    $("#lists,#friends,#songs").show();
+  //$("#sodbox,#sod,#sodtitle,#soddesc,#soddate,#emotion").show();
   $("#sodbbox,#sodb,#sodbtitle,#sodbdate,#emotionb").show();
   $("#sodcbox,#sodc,#sodctitle,#sodcdate,#emotionc").show();
+  $("#soddbox,#sodd,#soddtitle,#sodddate,#emotiond").show();
   });
 function goddammit(){
    $("#background").toggleClass("pause");
