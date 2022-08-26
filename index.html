@@ -171,10 +171,11 @@
          display: none;
          }
          #yourname{
-       position: absolute;
-         top: 50%;
-         margin-top: -240px;
-         margin-left: calc(50% - 150px);
+       position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+margin-top: -230px;
    font-size: 14px;
    padding: 5px;
    border-radius: 5px;
@@ -190,7 +191,7 @@
          #songs{
             position: absolute;
          top: 50%;
-         margin-top: -210px;
+         margin-top: -205px;
          margin-left: calc(50% - 145px);
    font-size: 14px;
    padding: 5px;
@@ -204,8 +205,8 @@
          #friends{
             position: absolute;
          top: 50%;
-         margin-top: -210px;
-         margin-left: calc(50% - 87.5px);
+         margin-top: -205px;
+         margin-left: calc(50% - 82.5px);
    font-size: 14px;
    padding: 5px;
    border-radius: 5px;
@@ -217,8 +218,8 @@
                   #lists{
             position: absolute;
          top: 50%;
-         margin-top: -210px;
-         margin-left: calc(50% - 22.5px);
+         margin-top: -205px;
+         margin-left: calc(50% - 15.5px);
    font-size: 14px;
    padding: 5px;
    border-radius: 5px;
@@ -321,23 +322,33 @@
          margin-top: -190px;
          display: none;
          }
-         #favb{
-            position: fixed;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         margin-left: -100px; 
-         margin-top: -140px;
-         display: none;
-         }
-         #favc{
-            position: fixed;
+         .favb{
+         position: fixed;
          top: 50%;
          left: 50%;
          transform: translate(-50%, -50%); 
          margin-left: -100px;
-         margin-top: -90px;
+         margin-top: -135px;
          display: none;
+         }
+         .emote{
+          position: absolute;
+   top: 50%;
+   margin-top: -150px;
+   margin-left: calc(50% - 150px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+color: transparent;  
+  text-shadow: 0 0 0 tomato;
+   z-index: 1;
+   font-weight: bold;
+   width: 170px;
+   white-space: nowrap;
+overflow: hidden;
+display: none;
+text-overflow: ellipsis;
          }
          .favatitle{
    position: absolute;
@@ -352,6 +363,24 @@
    z-index: 1;
    display: none;
    font-weight: bold;
+         }
+   .favbtitle{
+   position: absolute;
+   top: 50%;
+   margin-top: -210px;
+   margin-left: calc(50% - 70px);
+   font-size: 14px;
+   padding: 5px;
+   border-radius: 5px;
+   text-align: left !important;
+   color: white;
+   z-index: 1;
+   display: none;
+   font-weight: bold;
+   width: 170px;
+   white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
          }
          #favbtitle{
              position: absolute;
@@ -684,6 +713,7 @@ position: absolute;
    background-color: white;
    text-align: left !important;
    color: rebeccapurple;
+   font-weight: bold;
    z-index: 1;
          }
           #searchbackground{
@@ -780,6 +810,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
    width: 120px;
    background-color: white;
    border-radius: 50px;
+   display: none;
 }
 div.scrollmenu {
   overflow: auto;
@@ -800,11 +831,17 @@ div.scrollmenu h2{
   color: white;
   text-align: center;
   padding: 5px;
-  margin-right: 10px;
+  margin-right: 15px;
   font-size: 14px;
   background-color: rgba(0, 0, 0, 0);
   border-radius: 5px;
   text-decoration: none;
+}
+#added{
+   height: 150px;
+   width: 300px;
+   background-color: white;
+   border-radius: 10px;
 }
       </style>
    </head>
@@ -944,7 +981,7 @@ if(newdate == fullarray[z][4]){array.push(fullarray[z]);}
           var artist = array[num][1];
           var lnk = array[num][2];
           var img = array[num][3]; 
-         	document.write("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
+         	document.write("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:300px; height:300px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
             document.getElementById("user").innerHTML = (array[num][5]);
             document.getElementById("user").setAttribute('style','text-align:left;');
          }
@@ -959,7 +996,7 @@ bonusnum = num;
           var bartist = array[bonusnum][1];
           var blnk = array[bonusnum][2];
           var bimg = array[bonusnum][3];
-document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+blnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+bimg+"'><h3 id='title'>"+btitle+"</h3><h4 id='artist'>"+bartist+"</h4>");
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+blnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:300px; height:300px;' src='"+bimg+"'><h3 id='title'>"+btitle+"</h3><h4 id='artist'>"+bartist+"</h4>");
 if (bonusnum == 0){
 $("#background").css('background-color', 'rebeccapurple');
 }
@@ -1022,7 +1059,7 @@ else{
           var uartist = array[bonusnum][1];
           var ulnk = array[bonusnum][2];
           var uimg = array[bonusnum][3];
-document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+ulnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+uimg+"'><h3 id='title'>"+utitle+"</h3><h4 id='artist'>"+uartist+"</h4>");
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+ulnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:300px; height:300px;' src='"+uimg+"'><h3 id='title'>"+utitle+"</h3><h4 id='artist'>"+uartist+"</h4>");
 if (caught ==1){}
 else{
 if (bonusnum == 0){
@@ -1102,7 +1139,7 @@ title = array[num][0];
 artist = array[num][1];
 lnk = array[num][2];
 img = array[num][3]; 
-document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:300px; height:300px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
             document.getElementById("user").innerHTML = (array[num][5]);
 //$("#header").toggleClass("green");
 $("#randdemo").toggle();
@@ -1130,7 +1167,7 @@ title = array[num][0];
 artist = array[num][1];
 lnk = array[num][2];
 img = array[num][3]; 
-document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:300px; height:300px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
    document.getElementById("user").innerHTML = (array[num][5]);
 //$("#header").removeClass("green");
 $("#randdemo").show();
@@ -1144,14 +1181,13 @@ $("#userlist").hide();
    <img id="fulllogo" src="https://data.whicdn.com/images/331836944/original.jpg"><h2 id="yourname">Ben Gottlieb <span class="pronouns">(he/him)</span></h2>
    <h2 id="songs">Songs</h2>
    <h2 id="friends">Friends</h2>
-   <h2 id="lists">Lists</h2>
+   <h2 id="lists">Favs</h2>
    <h2 id="search">+</h2>
   <!-- <h2 id="calendarbtn">c</h2>-->
    <h2 id="back">&#8678;</h2>
    <div class="scrollmenu">
   <h2 style="background-color: white; color: black;">Songs</h2>
   <h2>Friends</h2>
-  <h2>Lists</h2>
   <h2>Dates</h2>
 </div>
    <div id="sodbox"></div>
@@ -1175,6 +1211,27 @@ $("#userlist").hide();
    <h2 id="emotiond">&#128513;</h2>
    <h2 id="soddtitle">Thankful<br><span class="pronouns">454</span></h2>
    <h2 id="sodddate">Monday</h2>
+
+   <img class="favb" style="margin-top: -135px;" src="https://media.pitchfork.com/photos/627bb38d93f71d60359384f1/1:1/w_600/Danger-Mouse-Black-Thought-Cheat-Codes-2022.jpg">
+   <h2 class="emote">&#128513;</h2>
+   <h2 class="favbtitle" style="margin-top: -155px;">Cheat Codes<br><span class="pronouns">Danger Mouse, Black Thought</span></h2>
+   <img class="favb" style="margin-top: -80px;" src="https://i.scdn.co/image/ab67616d0000b27314f9c74c7c7ab447ac1a9c34">
+   <h2 class="emote" style="margin-top: -93px; text-shadow: 0 0 0 skyblue;">&#128513;</h2>
+   <h2 class="favbtitle" style="margin-top: -100px;">Devilish<br><span class="pronouns">Jean Dawson</span></h2>
+   <img class="favb" style="margin-top: -25px;" src="https://media.pitchfork.com/photos/59b70549b52b0b7489e1ddb6/1:1/w_600/1992deluxe.jpg">
+   <h2 class="favbtitle" style="margin-top: -45px;">Brujas<br><span class="pronouns">Princess Nokia</span></h2>
+   <img class="favb" style="margin-top: 30px;" src="https://images.genius.com/07f54be2925d89b7279f995b81495156.1000x1000x1.jpg">
+   <h2 class="favbtitle" style="margin-top: 10px;">Run Away With Me<br><span class="pronouns">Carly Rae Jepsen</span></h2>
+   <img class="favb" style="margin-top: 85px;" src="https://upload.wikimedia.org/wikipedia/en/5/51/Gorillaz_-_Momentary_Bliss.png">
+   <h2 class="favbtitle" style="margin-top: 65px;">Momentary Bliss<br><span class="pronouns">Gorillaz, slowthai, Slaves</span></h2>
+   <img class="favb" style="margin-top: 140px;" src="http://images.genius.com/0d29ddcb35cc5bfaff87c2c9baf85b78.1000x1000x1.jpg">
+   <h2 class="favbtitle" style="margin-top: 120px;">Familiar Patterns<br><span class="pronouns">PUP</span></h2>
+   <img class="favb" style="margin-top: 195px;" src="https://i.scdn.co/image/ab67616d0000b273bf80fa20fb3f2e6a765f0d5d">
+   <h2 class="favbtitle" style="margin-top: 175px;">Car Crash<br><span class="pronouns">Idles</span></h2>
+   <img class="favb" style="margin-top: 250px;" src="https://media.pitchfork.com/photos/5ee923f47bb7acb328d5683d/master/pass/Punisher%20_Phoebe%20Bridgers.jpg">
+   <h2 class="favbtitle" style="margin-top: 230px;">Garden Song<br><span class="pronouns">Pheobe Bridgers</span></h2>
+   <img class="favb" style="margin-top: 305px;" src="https://images.genius.com/0a5ab7f1958ab98948f061b776e90fe0.1000x1000x1.jpg">
+   <h2 class="favbtitle" style="margin-top: 285px;">Everybody Wants to Love You<br><span class="pronouns">Japanese Breakfast</span></h2>
    
 
    <img class="fava" src="https://media.pitchfork.com/photos/5d2750847953c00009b978cb/1:1/w_600/Clairo_Immunity.jpg">
@@ -1247,7 +1304,7 @@ else{
 artist = array[num][1];
 lnk = array[num][2];
 img = array[num][3]; 
-document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:270px; height:270px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
+document.getElementById("randdemo").innerHTML = ("<style>body{background-image: url("+lnk+");} .im{visibility:hidden;}</style><img class='mainimg' onclick='goddammit()' style='width:300px; height:300px;' src='"+img+"'><h3 id='title'>"+title+"</h3><h4 id='artist'>"+artist+"</h4>");
             document.getElementById("user").innerHTML = (array[num][5]);
 }
 //$("#header").toggleClass("green");
@@ -1274,8 +1331,29 @@ $("#search").click(function(){
     $(".mainimg").hide();
     $("#back").show();
     $("input").show();
-    $(".fava,#favb,#favc,.favatitle,#favbtitle,#favctitle").show();
+    $(".fava,.favatitle").show();
   });
+$("#songs").click(function(){
+    $("#lists").css('background-color', 'black');
+    $("#lists").css('color', 'white');
+    $(this).css('background-color', 'white');
+    $(this).css('color', 'black');
+    $("#sodbbox,#sodb,#sodbtitle,#sodbdate,#emotionb").show();
+   $("#sodcbox,#sodc,#sodctitle,#sodcdate,#emotionc").show();
+   $("#soddbox,#sodd,#soddtitle,#sodddate,#emotiond").show();
+   $(".favb,.favbtitle,.emote").hide();
+  });
+$("#lists").click(function(){
+    $("#songs").css('background-color', 'black');
+    $("#songs").css('color', 'white');
+    $(this).css('background-color', 'white');
+    $(this).css('color', 'black');
+    $("#sodbbox,#sodb,#sodbtitle,#sodbdate,#emotionb").hide();
+   $("#sodcbox,#sodc,#sodctitle,#sodcdate,#emotionc").hide();
+   $("#soddbox,#sodd,#soddtitle,#sodddate,#emotiond").hide();
+   $(".favb,.favbtitle,.emote").show();
+  });
+//.favb,.favbtitle
 $("#back").click(function(){
     $("#background").show();
     $("#leftbackground").show();
@@ -1293,11 +1371,16 @@ $("#back").click(function(){
     $("#fulllogo").hide();
     $("#yourname").hide();
     $("#lists,#friends,#songs").hide();
-    $(".fava,#favb,#favc,.favatitle,#favbtitle,#favctitle").hide();
+    $(".fava,.favatitle").hide();
    //$("#sodbox,#sod,#sodtitle,#soddesc,#soddate,#emotion").hide();
    $("#sodbbox,#sodb,#sodbtitle,#sodbdate,#emotionb").hide();
    $("#sodcbox,#sodc,#sodctitle,#sodcdate,#emotionc").hide();
    $("#soddbox,#sodd,#soddtitle,#sodddate,#emotiond").hide();
+   $(".favb,.favbtitle, .emote").hide();
+   $("#lists").css('background-color', 'black');
+   $("#lists").css('color', 'white');
+   $("#songs").css('background-color', 'white');
+   $("#songs").css('color', 'black');
   });
 $("#logo").click(function(){
     $("#background").hide();
